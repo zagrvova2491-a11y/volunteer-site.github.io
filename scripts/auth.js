@@ -58,7 +58,7 @@ class AuthManager {
         const currentUser = database.getCurrentUser();
         if (currentUser && (window.location.pathname.includes('login.html') || 
                            window.location.pathname.includes('register.html'))) {
-            window.location.href = 'main.html';
+            window.location.href = 'index.html';
         }
     }
 
@@ -74,7 +74,7 @@ class AuthManager {
             this.showNotification('Вход выполнен успешно!', 'success');
             
             setTimeout(() => {
-                window.location.href = 'main.html';
+                window.location.href = 'index.html';
             }, 1000);
 
         } catch (error) {
@@ -112,7 +112,7 @@ class AuthManager {
             this.showNotification('Регистрация прошла успешно!', 'success');
             
             setTimeout(() => {
-                window.location.href = 'main.html';
+                window.location.href = 'index.html';
             }, 1000);
 
         } catch (error) {
@@ -277,4 +277,5 @@ class AuthManager {
 
 document.addEventListener('DOMContentLoaded', function() {
     window.authManager = new AuthManager();
+
 });
