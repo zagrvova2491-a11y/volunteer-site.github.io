@@ -1,0 +1,304 @@
+/* Main Map Styles */
+.map-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    height: 500px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#mainMap {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+/* Location Selection Map */
+#locationMap {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+}
+
+/* Google Maps Customization */
+.gm-style .gm-style-iw-c {
+    border-radius: 15px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.gm-style .gm-style-iw-t::after {
+    background: rgba(76, 175, 80, 0.8);
+}
+
+.marker-info {
+    padding: 0.5rem;
+    min-width: 200px;
+}
+
+.marker-title {
+    font-weight: bold;
+    color: #2e7d32;
+    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
+}
+
+.marker-date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.marker-time, .marker-volunteers {
+    color: #4caf50;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.marker-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin: 0.5rem 0;
+}
+
+.marker-tag {
+    background: rgba(76, 175, 80, 0.2);
+    color: #2e7d32;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.75rem;
+}
+
+.marker-actions {
+    margin-top: 0.8rem;
+    text-align: center;
+}
+
+.marker-actions button {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.marker-actions button:hover {
+    background: #388e3c;
+}
+
+/* Map Controls */
+.map-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.map-control {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transition: background-color 0.3s;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.map-control:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+/* Location Picker */
+.location-picker-marker {
+    background: #f44336;
+    border: 3px solid white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7);
+    }
+    70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 10px rgba(244, 67, 54, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(244, 67, 54, 0);
+    }
+}
+
+/* Search Box Styles */
+.pac-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    margin-top: 5px;
+}
+
+.pac-item {
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pac-item:hover {
+    background: rgba(76, 175, 80, 0.1);
+}
+
+.pac-item-selected {
+    background: rgba(76, 175, 80, 0.2);
+}
+
+.pac-matched {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+/* Custom Map Controls */
+.gm-control-active {
+    background: white !important;
+    border-radius: 4px !important;
+}
+
+.gm-style .gm-control-active > img {
+    filter: brightness(0.8);
+}
+
+/* Map Type Controls */
+.gm-style-mtc {
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Zoom Controls */
+.gm-style .gm-ctrl {
+    background: white;
+    border-radius: 4px;
+}
+
+.gm-style .gm-ctrl:hover {
+    background: #f5f5f5;
+}
+
+/* Fullscreen Control */
+.gm-fullscreen-control {
+    background: white !important;
+    border-radius: 4px !important;
+}
+
+/* Responsive Map Styles */
+@media (max-width: 768px) {
+    .map-container {
+        height: 400px;
+        border-radius: 15px;
+    }
+    
+    #locationMap {
+        height: 250px;
+    }
+    
+    .marker-info {
+        min-width: 180px;
+    }
+    
+    .marker-title {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .map-container {
+        height: 300px;
+        border-radius: 12px;
+    }
+    
+    #locationMap {
+        height: 200px;
+    }
+    
+    .map-control {
+        width: 35px;
+        height: 35px;
+        padding: 6px;
+    }
+    
+    .marker-info {
+        min-width: 160px;
+        padding: 0.3rem;
+    }
+    
+    .marker-title {
+        font-size: 0.9rem;
+    }
+    
+    .marker-date, .marker-time, .marker-volunteers {
+        font-size: 0.8rem;
+    }
+    
+    .marker-actions button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Dark Theme for Maps */
+@media (prefers-color-scheme: dark) {
+    .gm-style {
+        filter: brightness(0.8) contrast(1.2);
+    }
+    
+    .pac-container {
+        background: rgba(40, 40, 40, 0.95);
+        color: white;
+    }
+    
+    .pac-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .pac-item:hover {
+        background: rgba(76, 175, 80, 0.3);
+    }
+}
+
+/* Print Styles for Maps */
+@media print {
+    .map-container {
+        background: white;
+        border: 2px solid #ccc;
+        box-shadow: none;
+    }
+    
+    #mainMap, #locationMap {
+        filter: contrast(1.5);
+    }
+}
