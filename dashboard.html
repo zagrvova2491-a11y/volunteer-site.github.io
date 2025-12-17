@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Connect - Личный кабинет</title>
+        
+    <style>
+        :root {
+            --background-image: url('https://media.istockphoto.com/id/598520904/photo/green-forest-foliage-aerial-view-woodland-tree-canopy-nature-background.jpg?s=612x612&w=0&k=20&c=RcCcRuTBBqnaZ_58Q1o9NGNUxRg-tlPzK_jTjpPIpM4=');
+        }
+    </style>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=#YOUR_GOOGLE_MAPS_API_KEY#&libraries=places&callback=Function.prototype"></script>
+    
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/map.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-leaf"></i>
+                    Eco-Connect
+                </a>
+                <nav class="nav">
+                    <a href="#dashboard" class="nav-link">Главная</a>
+                    <a href="#events" class="nav-link">Мероприятия</a>
+                    <a href="#map" class="nav-link">Карта</a>
+                    <a href="#progress" class="nav-link">Статистика</a>
+                </nav>
+                <div class="user-menu-container">
+                    <button class="user-menu-btn" id="userMenuBtn">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="userName">Аккаунт</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-info">
+                            <div class="user-avatar" id="userAvatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-details">
+                                <div class="user-fullname" id="userFullName"></div>
+                                <div class="user-email" id="userEmail"></div>
+                                <div class="user-role" id="userRole"></div>
+                            </div>
+                        </div>
+                        <div class="user-stats">
+                            <div class="stat-item" id="statItem1">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Участвовал в <strong id="participatedCount">0</strong> мероприятиях</span>
+                            </div>
+                            <div class="stat-item" id="statItem2">
+                                <i class="fas fa-users"></i>
+                                <span>В системе <strong id="daysInSystem">0</strong> дней</span>
+                            </div>
+                            <div class="stat-item" id="curatorStats" style="display: none;">
+                                <i class="fas fa-calendar-plus"></i>
+                                <span>Создал <strong id="createdEventsCount">0</strong> мероприятий</span>
+                            </div>
+                        </div>
+                        <div class="dropdown-actions">
+                            <button class="dropdown-item" id="profileBtn">
+                                <i class="fas fa-user-edit"></i>
+                                Профиль
+                            </button>
+                            <button class="dropdown-item" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Выйти
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Дашборд с выбором действий -->
+        <section id="dashboard" class="section">
+            <div class="container">
+                <h2 class="section-title" id="welcomeTitle">Добро пожаловать!</h2>
+                <div class="dashboard-grid">
+                    <div class="action-card" id="chooseEventCard">
+                        <div class="action-card-bg"></div>
+                        <div class="action-card-content">
+                            <h3><i class="fas fa-list-alt"></i> Выбрать мероприятие</h3>
+                            <p>Просмотрите все доступные мероприятия, отсортированные по дате и местоположению</p>
+                            <button class="btn btn-primary action-btn" id="chooseEventBtn">
+                                Выбрать мероприятие
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="action-card" id="quickJoinCard">
+                        <div class="action-card-bg"></div>
+                        <div class="action-card-content">
+                            <h3><i class="fas fa-bolt"></i> Участвовать быстро</h3>
+                            <p>Автоматический подбор ближайшего мероприятия по вашему местоположению</p>
+                            <button class="btn btn-primary action-btn" id="quickJoinBtn">
+                                Быстрая запись
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Кнопка для кураторов -->
+                    <div class="action-card" id="createEventDashboardCard" style="display: none;">
+                        <div class="action-card-bg"></div>
+                        <div class="action-card-content">
+                            <h3><i class="fas fa-calendar-plus"></i> Создать мероприятие</h3>
+                            <p>Организуйте новое волонтерское мероприятие, приглашайте участников и управляйте процессом</p>
+                            <button class="btn btn-primary action-btn" id="createEventBtn">
+                                Создать мероприятие
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Список мероприятий (изначально скрыт) -->
+        <section id="events" class="section" style="display: none;">
+            <div class="container">
+                <div class="events-header">
+                    <h2 class="section-title">Доступные мероприятия</h2>
+                    <div class="events-controls">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="eventSearch" placeholder="Поиск мероприятий...">
+                        </div>
+                        <button class="btn btn-secondary" id="backToDashboardBtn">
+                            <i class="fas fa-arrow-left"></i> Назад к выбору
+                        </button>
+                    </div>
+                </div>
+                <div class="events-grid" id="eventsContainer">
+                    <!-- Мероприятия будут добавляться через JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Карта -->
+        <section id="map" class="section section-map">
+            <div class="container">
+                <h2 class="section-title">Карта мероприятий</h2>
+                <div class="map-container">
+                    <div id="mainMap"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Статистика -->
+        <section id="progress" class="section">
+            <div class="container">
+                <h2 class="section-title">Ваша статистика</h2>
+                <div class="progress-stats" id="progressStats">
+                    <!-- Статистика будет обновляться через JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Eco-Connect. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Модальные окна (такие же как были в main.html) -->
+    <!-- ... (вставить все модальные окна из старого main.html) ... -->
+    <!-- [Модальное окно создания мероприятия] -->
+    <!-- [Модальное окно участников мероприятия] -->
+    <!-- [Модальное окно успешной записи] -->
+
+    <!-- Уведомления -->
+    <div id="notification" class="notification"></div>
+
+    <!-- JavaScript -->
+    <script src="scripts/database.js"></script>
+    <script src="scripts/profile.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/map.js"></script>
+    <script src="scripts/events.js"></script>
+    <script src="scripts/dashboard.js"></script>
+    <script src="scripts/algorithm.js"></script>
+    <script>
+        // Проверяем авторизацию
+        const currentUser = localStorage.getItem('ecoConnectCurrentUser');
+        if (!currentUser) {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

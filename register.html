@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Connect - Регистрация</title>
+    <style>
+        :root {
+            --background-image: url('https://media.istockphoto.com/id/598520904/photo/green-forest-foliage-aerial-view-woodland-tree-canopy-nature-background.jpg?s=612x612&w=0&k=20&c=RcCcRuTBBqnaZ_58Q1o9NGNUxRg-tlPzK_jTjpPIpM4=');
+        }
+    </style>
+    <link rel="stylesheet" href="styles/auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1 class="auth-logo">
+                    <i class="fas fa-leaf"></i>
+                    Eco-Connect
+                </h1>
+                <p class="auth-subtitle">Создайте новый аккаунт</p>
+            </div>
+
+            <form id="registerForm" class="auth-form">
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <label>Фамилия Имя Отчество</label>
+                    <div class="fio-row">
+                        <div class="fio-column">
+                            <input type="text" id="lastName" name="lastName" required 
+                                   placeholder="Иванов"
+                                   pattern="[А-Яа-яЁё]{2,}"
+                                   title="Введите фамилию на русском языке"
+                                   oninput="this.value = this.value.replace(/[^А-Яа-яЁё]/g, '').replace(/^./, function(l) { return l.toUpperCase(); })">
+                            <div class="input-label">Фамилия</div>
+                        </div>
+                        <div class="fio-column">
+                            <input type="text" id="firstName" name="firstName" required 
+                                   placeholder="Иван"
+                                   pattern="[А-Яа-яЁё]{2,}"
+                                   title="Введите имя на русском языке"
+                                   oninput="this.value = this.value.replace(/[^А-Яа-яЁё]/g, '').replace(/^./, function(l) { return l.toUpperCase(); })">
+                            <div class="input-label">Имя</div>
+                        </div>
+                        <div class="fio-column">
+                            <input type="text" id="middleName" name="middleName" required 
+                                   placeholder="Иванович"
+                                   pattern="[А-Яа-яЁё]{2,}"
+                                   title="Введите отчество на русском языке"
+                                   oninput="this.value = this.value.replace(/[^А-Яа-яЁё]/g, '').replace(/^./, function(l) { return l.toUpperCase(); })">
+                            <div class="input-label">Отчество</div>
+                        </div>
+                    </div>
+                    <div class="input-hint">Все поля обязательны для заполнения на русском языке</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">Город проживания *</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-city"></i>
+                        <input type="text" id="city" name="city" required placeholder="Например: Москва">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" required placeholder="Введите ваш email">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Телефон *</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-phone"></i>
+                        <select id="countryCode" style="width: 80px; margin-right: 10px; background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; padding: 0.8rem;">
+                            <option value="+7">🇷🇺 +7</option>
+                            <option value="+1">🇺🇸 +1</option>
+                            <option value="+44">🇬🇧 +44</option>
+                        </select>
+                        <input type="tel" id="phone" name="phone" required placeholder="999 123-45-67" style="flex: 1;">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Тип аккаунта *</label>
+                    <div class="account-type-selector">
+                        <label class="account-type-option">
+                            <input type="radio" name="accountType" value="participant" checked>
+                            <div class="account-type-card">
+                                <i class="fas fa-user-friends"></i>
+                                <h4>Участник</h4>
+                                <p>Присоединяйтесь к мероприятиям, отслеживайте свой прогресс</p>
+                            </div>
+                        </label>
+                        <label class="account-type-option">
+                            <input type="radio" name="accountType" value="curator">
+                            <div class="account-type-card">
+                                <i class="fas fa-user-tie"></i>
+                                <h4>Куратор</h4>
+                                <p>Создавайте мероприятия, управляйте участниками, ведите статистику</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Интересы (выберите до 5)</label>
+                    <div class="interests-selector">
+                        <label class="interest-option">
+                            <input type="checkbox" name="interests" value="мусор">
+                            <span class="interest-badge">♻️ Мусор</span>
+                        </label>
+                        <label class="interest-option">
+                            <input type="checkbox" name="interests" value="листья">
+                            <span class="interest-badge">🍂 Листья</span>
+                        </label>
+                        <label class="interest-option">
+                            <input type="checkbox" name="interests" value="озеленение">
+                            <span class="interest-badge">🌳 Озеленение</span>
+                        </label>
+                        <label class="interest-option">
+                            <input type="checkbox" name="interests" value="озера">
+                            <span class="interest-badge">💧 Озера</span>
+                        </label>
+                        <label class="interest-option">
+                            <input type="checkbox" name="interests" value="парки">
+                            <span class="interest-badge">🌲 Парки</span>
+                        </label>
+                        <label class="interest-option">
+                            <input type="checkbox" name="interests" value="реки">
+                            <span class="interest-badge">🌊 Реки</span>
+                        </label>
+                        <label class="interest-option">
+                            <input type="checkbox" name="interests" value="пляжи">
+                            <span class="interest-badge">🏖️ Пляжи</span>
+                        </label>
+                        <label class="interest-option">
+                            <input type="checkbox" name="interests" value="леса">
+                            <span class="interest-badge">🌲 Леса</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Пароль *</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" required placeholder="Создайте пароль">
+                        <button type="button" class="password-toggle" id="togglePassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bar"></div>
+                        <span class="strength-text">Надежность пароля</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Подтвердите пароль *</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Повторите пароль">
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="agreeTerms" required>
+                        <span class="checkmark"></span>
+                        <span class="terms-text">
+                            Я согласен с <a href="#" class="terms-link">условиями использования</a><br>
+                            и <a href="#" class="terms-link">политикой конфиденциальности</a>
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large">
+                    <i class="fas fa-user-plus"></i>
+                    Зарегистрироваться
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Уже есть аккаунт? <a href="login.html" class="auth-link">Войти</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="scripts/database.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/scroll-animations.js"></script>
+</body>
+</html>

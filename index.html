@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Connect - Волонтерская платформа</title>
+        
+    <style>
+        :root {
+            --background-image: url('https://media.istockphoto.com/id/598520904/photo/green-forest-foliage-aerial-view-woodland-tree-canopy-nature-background.jpg?s=612x612&w=0&k=20&c=RcCcRuTBBqnaZ_58Q1o9NGNUxRg-tlPzK_jTjpPIpM4=');
+        }
+    </style>
+    
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Панель прокрутки -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-leaf"></i>
+                    Eco-Connect
+                </a>
+                <nav class="nav">
+                    <a href="#about" class="nav-link">О проекте</a>
+                    <a href="#cta" class="nav-link">Присоединиться</a>
+                </nav>
+                <button class="btn btn-primary" id="loginBtnHeader">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Войти
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Герой-секция -->
+        <section id="hero" class="section section-hero">
+            <div class="container">
+                <div class="hero-content" data-aos="fade-up">
+                    <h1 class="hero-title">Объединяем людей для чистоты планеты</h1>
+                    <p class="hero-subtitle">
+                        Eco-Connect — платформа для организации и участия в экологических мероприятиях. 
+                        Присоединяйтесь к тысячам волонтеров, которые меняют мир к лучшему.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary btn-large" id="joinHeroBtn">
+                            <i class="fas fa-leaf"></i>
+                            Стать волонтером
+                        </button>
+                        <button class="btn btn-secondary btn-large" id="watchVideoBtn">
+                            <i class="fas fa-play-circle"></i>
+                            Смотреть видео
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <i class="fas fa-users"></i>
+                            <span><strong>0</strong> волонтеров</span>
+                        </div>
+                        <div class="hero-stat">
+                            <i class="fas fa-calendar-check"></i>
+                            <span><strong>0</strong> мероприятий</span>
+                        </div>
+                        <div class="hero-stat">
+                            <i class="fas fa-tree"></i>
+                            <span><strong>12</strong> городов</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- О проекте / Истории -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">Как работает Eco-Connect</h2>
+                <p class="section-subtitle">Истории, которые меняют мир к лучшему</p>
+                
+                <div class="stories-container">
+                    <!-- История 1 -->
+                    <div class="story-module">
+                        <div class="story-content" data-aos="fade-up">
+                            <div class="story-number">Объединяем волонтеров</div>
+                            <h3 class="story-title">Объединяем волонтеров</h3>
+                            <p class="story-text">
+                                Каждый день тысячи людей хотят помочь природе, но не знают с чего начать. 
+                                Eco-Connect объединяет этих людей, предоставляя удобную платформу для 
+                                поиска и организации экологических мероприятий в их городе.
+                            </p>
+                            <div class="story-stats">
+                                <div class="story-stat" data-aos="fade-up" data-aos-delay="100">
+                                    <span class="stat-number">0</span>
+                                    <span class="stat-label">активных волонтеров</span>
+                                </div>
+                                <div class="story-stat" data-aos="fade-up" data-aos-delay="200">
+                                    <span class="stat-number">12</span>
+                                    <span class="stat-label">городов поддерживается в России</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="story-visual">
+                            <div class="story-image-container">
+                                <img src="images/story-1.jpg" alt="Волонтеры объединяются" class="story-image">
+                                <div class="image-overlay"></div>
+                            </div>
+                            <div class="visual-effect effect-1"></div>
+                        </div>
+                    </div>
+
+                    <!-- История 2 -->
+                    <div class="story-module">
+                        <div class="story-visual">
+                            <div class="story-image-container">
+                                <img src="images/story-2.jpg" alt="Очистка территории" class="story-image">
+                                <div class="image-overlay"></div>
+                            </div>
+                            <div class="visual-effect effect-2"></div>
+                        </div>
+                        <div class="story-content" data-aos="fade-up" data-aos-delay="200">
+                            <div class="story-number">Создаем реальные изменения</div>
+                            <h3 class="story-title">Создаем реальные изменения</h3>
+                            <p class="story-text">
+                                Благодаря нашей платформе за последний год было организовано более 0 
+                                мероприятий по уборке мусора, озеленению и защите природных зон. 
+                                Каждое мероприятие оставляет след в экологии города.
+                            </p>
+                            <div class="story-stats">
+                                <div class="story-stat" data-aos="fade-up" data-aos-delay="300">
+                                    <span class="stat-number">0</span>
+                                    <span class="stat-label">тонн мусора собрано</span>
+                                </div>
+                                <div class="story-stat" data-aos="fade-up" data-aos-delay="400">
+                                    <span class="stat-number">0</span>
+                                    <span class="stat-label">деревьев посажено</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- История 3 -->
+                    <div class="story-module">
+                        <div class="story-content" data-aos="fade-up" data-aos-delay="400">
+                            <div class="story-number">Развиваем сообщество</div>
+                            <h3 class="story-title">Развиваем сообщество</h3>
+                            <p class="story-text">
+                                Мы создаем не просто платформу, а настоящее сообщество единомышленников. 
+                                Кураторы получают инструменты для организации мероприятий, а участники — 
+                                возможность легко находить события по своим интересам.
+                            </p>
+                            <div class="story-stats">
+                                <div class="story-stat" data-aos="fade-up" data-aos-delay="500">
+                                    <span class="stat-number">24/7</span>
+                                    <span class="stat-label">поддержка сообщества</span>
+                                </div>
+                                <div class="story-stat" data-aos="fade-up" data-aos-delay="600">
+                                    <span class="stat-number">100%</span>
+                                    <span class="stat-label">положительных отзывов</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="story-visual">
+                            <div class="story-image-container">
+                                <img src="images/story-3.jpg" alt="Сообщество экоактивистов" class="story-image">
+                                <div class="image-overlay"></div>
+                            </div>
+                            <div class="visual-effect effect-3"></div>
+                        </div>
+                    </div>
+
+                    <!-- Ключевые достижения -->
+                    <div class="achievements-container" data-aos="zoom-in">
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4 class="achievement-number">0</h4>
+                            <p class="achievement-text">Участников в сообществе</p>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <h4 class="achievement-number">0</h4>
+                            <p class="achievement-text">Проведенных мероприятий</p>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <h4 class="achievement-number">0</h4>
+                            <p class="achievement-text">Озелененных территорий</p>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h4 class="achievement-number">1</h4>
+                            <p class="achievement-text">Партнерских организаций</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Призыв к действию -->
+        <section id="cta" class="section section-cta">
+            <div class="container" data-aos="fade-up">
+                <div class="cta-content">
+                    <h2 class="cta-title">Присоединяйтесь к движению</h2>
+                    <p class="cta-text">
+                        Каждое ваше действие имеет значение. Вместе мы можем сделать окружающий мир чище, 
+                        зеленее и лучше для будущих поколений. Начните свой путь эковолонтера уже сегодня!
+                    </p>
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary btn-large" id="joinCommunityBtn">
+                            <i class="fas fa-leaf"></i>
+                            Стать волонтером
+                        </button>
+                        <button class="btn btn-secondary btn-large" id="learnMoreBtn">
+                            <i class="fas fa-play-circle"></i>
+                            Смотреть видео
+                        </button>
+                    </div>
+                    <div class="cta-stats">
+                        <div class="cta-stat">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Присоединяется <strong>0</strong> новых волонтеров ежедневно</span>
+                        </div>
+                        <div class="cta-stat">
+                            <i class="fas fa-star"></i>
+                            <span>Рейтинг доверия <strong>5/5</strong> по отзывам участников</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Eco-Connect. Все права защищены.</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Политика конфиденциальности</a>
+                <a href="#" class="footer-link">Условия использования</a>
+                <a href="#" class="footer-link">Контакты</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно видео -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <span class="close" id="closeVideoModal">&times;</span>
+            <h3><i class="fas fa-play-circle"></i> Видео о проекте Eco-Connect</h3>
+            <div class="video-container" style="margin-top: 1rem;">
+                <iframe width="100%" height="400" 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        style="border-radius: 15px;">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключаем скрипты -->
+    <script src="scripts/scroll-animations.js"></script>
+    <script src="scripts/static-images.js"></script>
+    <script>
+        // Проверяем, авторизован ли пользователь
+        const currentUser = localStorage.getItem('ecoConnectCurrentUser');
+        
+        // Если авторизован - перенаправляем в личный кабинет
+        if (currentUser) {
+            window.location.href = 'dashboard.html';
+        }
+
+        // Обработчики кнопок
+        document.getElementById('loginBtnHeader').addEventListener('click', () => {
+            window.location.href = 'login.html';
+        });
+
+        document.getElementById('joinHeroBtn').addEventListener('click', () => {
+            window.location.href = 'login.html';
+        });
+
+        document.getElementById('joinCommunityBtn').addEventListener('click', () => {
+            window.location.href = 'login.html';
+        });
+
+        document.getElementById('watchVideoBtn').addEventListener('click', () => {
+            document.getElementById('videoModal').classList.add('show');
+        });
+
+        document.getElementById('learnMoreBtn').addEventListener('click', () => {
+            document.getElementById('videoModal').classList.add('show');
+        });
+
+        document.getElementById('closeVideoModal').addEventListener('click', () => {
+            document.getElementById('videoModal').classList.remove('show');
+        });
+
+        // Закрытие модалки по клику вне
+        document.getElementById('videoModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('videoModal')) {
+                document.getElementById('videoModal').classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
